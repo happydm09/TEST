@@ -13,6 +13,21 @@ div{
 }
 </style>
 <script>
+	
+function GetAndroidDevName() {
+	var uaAdata = navigator.userAgent;
+	var regex = /Android (.*);.*;\s*(.*)\sBuild/;
+	var match = regex.exec(uaAdata);
+	if (match) {
+		var ver = match[1];
+		var dev_name = match[2];
+		
+		alert("Android " + ver + " " + dev_name");
+		return "Android " + ver + " " + dev_name;
+	}
+	return "Android OS";
+}
+	
 function printNavigator(){
 	let text = "<span>appCodeName</span>: " + navigator.appCodeName + "<br>";
 		text += "<span>appName</span>: " + navigator.appName + "<br>";
@@ -36,6 +51,10 @@ function printNavigator(){
 	let div = document.getElementById("div");
 	div.innerHTML = text;
 }
+	
+
+GetAndroidDevName()
+	
 </script>
 </head>
 <body onload="printNavigator()">
