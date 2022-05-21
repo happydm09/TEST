@@ -14,6 +14,8 @@ div{
 </style>
 <script>
 	
+var n = null
+	
 function GetAndroidDevName() {
 	var uaAdata = navigator.userAgent;
 	var regex = /Android (.*);.*;\s*(.*)\sBuild/;
@@ -22,6 +24,7 @@ function GetAndroidDevName() {
 		var ver = match[1];
 		var dev_name = match[2];
 		
+		n = dev_name
 		alert("Android " + ver + " " + dev_name);
 		return "Android " + ver + " " + dev_name;
 	}
@@ -51,7 +54,7 @@ function printNavigator(){
 	let div = document.getElementById("div");
 	div.innerHTML = text;
 	
-	GetAndroidDevName()
+alert(n)
 }
 	
 </script>
