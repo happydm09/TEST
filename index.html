@@ -13,22 +13,23 @@ div{
 }
 </style>
 <script>
-	
-var n = null
-	
-function GetAndroidDevName() {
-	var uaAdata = navigator.userAgent;
-	var regex = /Android (.*);.*;\s*(.*)\sBuild/;
-	var match = regex.exec(uaAdata);
-	if (match) {
-		var ver = match[1];
-		var dev_name = match[2];
-		
-		n = dev_name
-		alert("Android " + ver + " " + dev_name);
-		return "Android " + ver + " " + dev_name;
-	}
-	return "Android OS";
+
+var ua=navigator.userAgent;
+
+function GetAndroidData(){
+
+let string=ua.match(/Android.*Build/);
+let str=string.toString();
+
+var start=str.indexOf(';');
+var end=str.indexOf('Build');
+var end2=str.indexOf(';');
+
+var str2=str.substring(start, end);
+var name=str2.substring(2);
+var ver=str.substring(7, end2);
+
+alert('Android'+ver+' on '+name);
 }
 	
 function printNavigator(){
@@ -53,9 +54,7 @@ function printNavigator(){
 	//div 태그에 출력
 	let div = document.getElementById("div");
 	div.innerHTML = text;
-
-GetAndroidDevName()
-alert(n)
+GetAndroidData()
 }
 	
 </script>
