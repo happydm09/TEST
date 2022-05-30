@@ -16,8 +16,6 @@ div{
 
 var ua=navigator.userAgent;
 
-function GetAndroidData(){
-
 let string=ua.match(/Android.*Build/);
 let str=string.toString();
 
@@ -30,7 +28,6 @@ var name=str2.substring(2);
 var ver=str.substring(7, end2);
 
 alert('Android'+ver+' on '+name);
-}
 	
 function printNavigator(){
 	let text = "<span>appCodeName</span>: " + navigator.appCodeName + "<br>";
@@ -54,7 +51,6 @@ function printNavigator(){
 	//div 태그에 출력
 	let div = document.getElementById("div");
 	div.innerHTML = text;
-GetAndroidData()
 }
 	
 </script>
